@@ -7,7 +7,13 @@ function generateSquares()
         let newSquare = document.createElement("div");
         newSquare.classList.add('square');
         grid.appendChild(newSquare);
+        newSquare.addEventListener("mouseenter", function(){ squareHover(newSquare); });
     }
 }
 
 generateSquares()
+
+function squareHover(square)
+{
+    square.style.background = "pink";
+}
