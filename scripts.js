@@ -7,7 +7,7 @@ function generateSquares()
         let newSquare = document.createElement("div");
         newSquare.classList.add('square');
         grid.appendChild(newSquare);
-        newSquare.addEventListener("mouseenter", function(){ squareHover(newSquare); });
+        newSquare.addEventListener("mouseenter", () => { squareHover(newSquare); });
     }
 }
 
