@@ -17,3 +17,8 @@ function squareHover(square)
 {
     square.style.background = "pink";
 }
+
+function startButton()
+{
+    let squareAmount = prompt("How many squares would you like in your canvas? (Max 100)")
+}
