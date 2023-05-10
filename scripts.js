@@ -1,8 +1,8 @@
-function generateSquares(squareAmount)
+function generateSquares(axisAmount)
 {
     const grid = document.querySelector(".grid");
 
-    for (i = 0; i < squareAmount; i++)
+    for (i = 0; i < (axisAmount * axisAmount); i++)
     {
         let newSquare = document.createElement("div");
         newSquare.classList.add('square');
@@ -11,19 +11,26 @@ function generateSquares(squareAmount)
     }
 }
 
-generateSquares()
-
 function squareHover(square)
 {
-    square.style.background = "pink";
+    square.style.background = "black";
 }
 
 function startButton()
 {
-    let squareAmount = prompt("How many squares would you like in your canvas? (Max 100)")
-    while (squareAmount > 100 || squareAmount < 1)
+    let axisAmount = prompt("How many squares would you like per side? (Max 100)")
+    while (axisAmount > 100 || axisAmount < 1)
     {
-        squareAmount = prompt("Sorry, please choose a number between 1 and 100.")
+        axisAmount = prompt("Sorry, please choose a number between 1 and 100.")
     }
-    generateSquares(squareAmount)
+
+    updateCSSVariable(axisAmount);
+    generateSquares(axisAmount);
+}
+
+function updateCSSVariable(axisAmount)
+{
+    let root = document.documentElement;
+
+    root.style.setProperty("--axisAmount", axisAmount);
 }

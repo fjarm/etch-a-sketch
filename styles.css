@@ -1,3 +1,7 @@
+:root {
+    --axisAmount: 0;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -25,16 +29,23 @@ body {
 }
 
 .grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(var(--axisAmount), 1fr);
+    grid-template-rows: repeat(var(--axisAmount), 1fr);
+
+    grid-auto-flow: dense;
+    justify-items: stretch;
+    align-items: stretch;
+
     width: 80vh;
     height: 80vh;
-    gap: 5px;
+    gap: 1px;
     border: 2px dashed black;
 }
 
 .square {
-    height: 100px;
-    width: 100px;
-    background: #4C3D3D;
+    background: bisque;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
 }
