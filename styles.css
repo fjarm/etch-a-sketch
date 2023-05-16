@@ -53,3 +53,14 @@ body {
 #rgbButton {
     margin-bottom: 15px;
 }
+
+.rgbLabel {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+input[type="checkbox"] {
+    width: 1.20em;
+    height: 1.20em;
+}
