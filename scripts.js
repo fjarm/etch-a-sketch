@@ -59,8 +59,4 @@ function reset()
         document.querySelector(".grid").replaceChildren();
         startButton();
     }
-    else
-    {
-
-    }
 }
