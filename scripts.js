@@ -18,6 +18,21 @@ function squareHover(square)
 
 function startButton()
 {
+    let button = document.getElementById("mainButton")
+    if (button.className === "startButton")
+    {
+        button.className = "resetButton";
+        button.textContent = "Reset";
+        start();
+    }
+    else
+    {
+        reset();
+    }
+}
+
+function start()
+{
     let axisAmount = prompt("How many squares would you like per side? (Max 100)")
     while (axisAmount > 100 || axisAmount < 1)
     {
@@ -33,4 +48,19 @@ function updateCSSVariable(axisAmount)
     let root = document.documentElement;
 
     root.style.setProperty("--axisAmount", axisAmount);
+}
+
+function reset()
+{
+    let resetConfirmation = confirm("Are you sure you want to reset?")
+    if (resetConfirmation === true)
+    {
+        document.getElementById("mainButton").className = "startButton";
+        document.querySelector(".grid").replaceChildren();
+        startButton();
+    }
+    else
+    {
+
+    }
 }
