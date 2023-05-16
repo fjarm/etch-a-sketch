@@ -21,24 +21,28 @@ function startButton()
     let button = document.getElementById("mainButton")
     if (button.className === "startButton")
     {
-        button.className = "resetButton";
-        button.textContent = "Reset";
-        start();
+        start(button);
     }
     else
     {
-        reset();
+        reset(button);
     }
 }
 
-function start()
+function start(button)
 {
     let axisAmount = prompt("How many squares would you like per side? (Max 100)")
+    if (axisAmount === null)
+    {
+        return
+    }
     while (axisAmount > 100 || axisAmount < 1)
     {
         axisAmount = prompt("Sorry, please choose a number between 1 and 100.")
     }
 
+    button.className = "resetButton";
+    button.textContent = "Reset";
     updateCSSVariable(axisAmount);
     generateSquares(axisAmount);
 }
@@ -50,13 +54,13 @@ function updateCSSVariable(axisAmount)
     root.style.setProperty("--axisAmount", axisAmount);
 }
 
-function reset()
+function reset(button)
 {
     let resetConfirmation = confirm("Are you sure you want to reset?")
     if (resetConfirmation === true)
     {
-        document.getElementById("mainButton").className = "startButton";
+        button.className = "startButton";
+        button.textContent = "Click Me!";
         document.querySelector(".grid").replaceChildren();
-        startButton();
     }
 }
