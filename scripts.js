@@ -13,7 +13,19 @@ function generateSquares(axisAmount)
 
 function squareHover(square)
 {
-    square.style.background = "black";
+    let rainbowMode = document.getElementById("rgbButton");
+    if (rainbowMode.checked)
+    {
+        square.style.background = randomHsl();
+    }
+    else
+    {
+        square.style.background = "black";
+    }
+}
+
+function randomHsl() {
+    return 'hsla(' + (Math.random() * 360) + ', 100%, 50%, 1)';
 }
 
 function startButton()
